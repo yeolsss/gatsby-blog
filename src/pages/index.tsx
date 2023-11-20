@@ -1,25 +1,12 @@
-import * as React from "react";
+import * as React from 'react';
+import { navigate, type HeadFC, type PageProps } from 'gatsby';
+import Seo from '../shared/seo';
 
-import { type HeadFC, type PageProps } from "gatsby";
-import Layout from "../components/layout";
-import { StaticImage } from "gatsby-plugin-image";
-import Seo from "../components/seo";
-
-const IndexPage: React.FC<PageProps> = () => {
-  return (
-    <Layout pageTitle="Home Page">
-      <p>I'm making this by following the Gatsby Tutorial.</p>
-      <StaticImage
-        alt="Clifford, a~~"
-        src="https://pbs.twimg.com/media/E1oMV3QVgAIr1NT?format=jpg&name=large"
-      />
-    </Layout>
-
-  );
+const IndexPage: React.FC<PageProps> = ({ location: Location }) => {
+  navigate('/home');
+  return <></>;
 };
 
 export default IndexPage;
 
-
 export const Head: HeadFC = () => <Seo title="Home Page" />;
-

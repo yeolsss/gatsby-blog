@@ -1,11 +1,11 @@
-import * as React from 'react';
-import * as St from './layout.styled';
-import { GlobalStyles } from '../../shared/style/GlobalStyles';
-import { GlobalFonts } from '../../shared/style/GlobalFonts';
-import { ThemeProvider } from 'styled-components';
-import { darkTheme } from '../../shared/style/theme/theme';
-import Header from '../header';
-import Profile from '../profile';
+import * as React from "react";
+import * as St from "./layout.styled";
+import { GlobalStyles } from "../../shared/style/GlobalStyles";
+import { GlobalFonts } from "../../shared/style/GlobalFonts";
+import { ThemeProvider } from "styled-components";
+import { darkTheme } from "../../shared/style/theme/theme";
+import Header from "../header";
+import Profile from "./profile";
 
 interface ILayoutProps {
   children: React.ReactNode;

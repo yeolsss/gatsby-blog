@@ -1,7 +1,7 @@
-import React from 'react';
-import Layout from '../../components/layout';
-import Seo from '../../shared/seo';
-import { HeadFC } from 'gatsby';
+import React from "react";
+import Layout from "../../components/layout";
+import Seo from "../../shared/seo";
+import { HeadFC } from "gatsby";
 
 function Post({ location }: { location: Location }) {
   return (

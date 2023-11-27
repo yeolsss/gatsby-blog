@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const styled = { createGlobalStyle };
 export const GlobalStyles = styled.createGlobalStyle`
@@ -125,7 +125,7 @@ export const GlobalStyles = styled.createGlobalStyle`
   blockquote:after,
   q:before,
   q:after {
-    content: '';
+    content: "";
     content: none;
   }
   table {

@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../../components/layout";
+import Layout from "../../shared/layout";
 import Seo from "../../shared/seo";
 import { HeadFC } from "gatsby";
 

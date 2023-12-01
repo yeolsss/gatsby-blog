@@ -1,11 +1,12 @@
 import * as React from "react";
 import * as St from "./layout.styled";
-import { GlobalStyles } from "../../shared/style/GlobalStyles";
-import { GlobalFonts } from "../../shared/style/GlobalFonts";
+import { GlobalStyles } from "../style/GlobalStyles";
+import { GlobalFonts } from "../style/GlobalFonts";
 import { ThemeProvider } from "styled-components";
-import { darkTheme } from "../../shared/style/theme/theme";
-import Header from "../header";
-import Profile from "./profile";
+import Header from "../../components/header";
+import Profile from "../../components/profile";
+import { useThemeContext } from "../../context/themeContext";
+import { darkTheme, lightTheme } from "../style/theme/theme";
 
 interface ILayoutProps {
   children: React.ReactNode;
@@ -14,8 +15,9 @@ interface ILayoutProps {
 }
 
 const Layout = ({ children, pageTitle, location }: ILayoutProps) => {
+  const { theme } = useThemeContext();
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme === "darkTheme" ? darkTheme : lightTheme}>
       <GlobalFonts />
       <GlobalStyles />
       <St.Container>

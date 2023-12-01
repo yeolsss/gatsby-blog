@@ -1,13 +1,16 @@
 import React from "react";
-import Layout from "../../components/layout";
+import Layout from "../../shared/layout";
 import { HeadFC } from "gatsby";
 import Seo from "../../shared/seo";
+import { ThemeContextProvider } from "../../context/themeContext";
 
 function home({ location }: { location: Location }) {
   return (
-    <Layout location={location} pageTitle="Home">
-      <p>Hello Home</p>
-    </Layout>
+    <ThemeContextProvider>
+      <Layout location={location} pageTitle="Home">
+        <p>Hello Home</p>
+      </Layout>
+    </ThemeContextProvider>
   );
 }
 

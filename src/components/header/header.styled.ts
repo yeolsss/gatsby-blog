@@ -3,11 +3,14 @@ import styled from "styled-components";
 export const Header = styled.header`
   width: 100%;
   height: 10.548rem;
-  margin-top: 3.165rem;
   display: flex;
   justify-content: space-between;
   padding: 0 2.1rem;
   box-sizing: border-box;
+  margin: 3.165rem auto 0;
+  @media (max-width: 74rem) {
+    max-width: 70rem;
+  }
 `;
 export const HeaderLogoWrapper = styled.div`
   height: 100%;

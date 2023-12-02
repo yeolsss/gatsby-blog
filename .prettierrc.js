@@ -1,9 +1,9 @@
-/** @type {import("prettier").Config} */
-const config = {
-  tabWidth: 2,
-  semi: true,
+module.exports = {
+  // 여기에 Prettier 설정을 추가하세요.
   singleQuote: false,
-  printWidth: 80,
+  semi: false,
+  useTabs: false,
+  tabWidth: 2,
+  printWidth: 40,
+  bracketSpacing: true,
 };
-
-module.exports = config;

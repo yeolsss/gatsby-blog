@@ -1,11 +1,10 @@
 import * as React from "react";
-import * as St from "./themeButton.styled";
 import { CiDark, CiLight } from "react-icons/ci";
-import { useThemeContext } from "../../../context/themeContext";
+import { useToggleContext } from "../../../context/ToggleContext";
+import * as St from "./themeButton.styled";
 
 const ThemeButton = () => {
-  const { theme, toggleTheme } = useThemeContext();
-
+  const { themeState, toggleTheme } = useToggleContext();
   const handleOnClickTheme = () => {
     toggleTheme();
   };
@@ -13,7 +12,7 @@ const ThemeButton = () => {
   return (
     <St.ThemeButtonWrapper>
       <button onClick={handleOnClickTheme}>
-        {theme === "lightTheme" ? <CiLight /> : <CiDark />}
+        {themeState === "lightTheme" ? <CiLight /> : <CiDark />}
       </button>
     </St.ThemeButtonWrapper>
   );

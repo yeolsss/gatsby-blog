@@ -1,17 +1,26 @@
 import * as React from "react";
-import ProfileImage from "./profileImage";
-import * as St from "./profile.styled";
-import { FaGithub } from "react-icons/fa";
 import { BsMailboxFlag } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa";
 import { GrDocumentUser } from "react-icons/gr";
+import { useToggleContext } from "../../context/ToggleContext";
+import * as St from "./profile.styled";
+import ProfileImage from "./profileImage";
 import ThemeButton from "./themeButton";
 
 const Profile = () => {
+  const { profileState } = useToggleContext();
+  console.log(profileState);
   return (
     <St.ProfileWrapper>
-      <div>
+      {/* 가상 div */}
+      <St.VisibleProfileWrapper $profileState={profileState} />
+
+      <St.ProfileContent $profileState={profileState}>
+        {/* profile image */}
         <ProfileImage />
-        <St.ProfileInformation>
+
+        {/* profile info */}
+        <St.ProfileInformation $profileState={profileState}>
           <h2>저에 대해 소개 합니다.</h2>
           <St.ProfileInformationNameTag>
             <h1>권경열</h1>
@@ -27,9 +36,11 @@ const Profile = () => {
             </a>
           </St.ProfileInformationNameTag>
         </St.ProfileInformation>
+
+        {/* theme toggle button */}
         <ThemeButton />
-      </div>
-      <St.ProfileDescriptionWrapper>
+      </St.ProfileContent>
+      <St.ProfileDescriptionWrapper $profileState={profileState}>
         <St.ProfileDescription>
           <p>
             안녕하세요. 웹 개발 2년차로 활동중인 개발자 입니다. 단순히 책이나

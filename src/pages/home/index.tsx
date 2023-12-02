@@ -1,16 +1,14 @@
-import React from "react";
-import Layout from "../../shared/layout";
 import { HeadFC } from "gatsby";
+import React from "react";
+import { ToggleContextProvider } from "../../context/ToggleContext";
+import Layout from "../../shared/layout";
 import Seo from "../../shared/seo";
-import { ThemeContextProvider } from "../../context/themeContext";
 
 function home({ location }: { location: Location }) {
   return (
-    <ThemeContextProvider>
-      <Layout location={location} pageTitle="Home">
-        <p>Hello Home</p>
-      </Layout>
-    </ThemeContextProvider>
+    <Layout location={location} pageTitle="Home">
+      <p>Hello Home</p>
+    </Layout>
   );
 }
 

@@ -1,12 +1,15 @@
 import * as React from "react";
-import * as St from "./layout.styled";
-import { GlobalStyles } from "../style/GlobalStyles";
-import { GlobalFonts } from "../style/GlobalFonts";
 import { ThemeProvider } from "styled-components";
 import Header from "../../components/header";
 import Profile from "../../components/profile";
-import { useThemeContext } from "../../context/themeContext";
+import {
+  ToggleContextProvider,
+  useToggleContext,
+} from "../../context/ToggleContext";
+import { GlobalFonts } from "../style/GlobalFonts";
+import { GlobalStyles } from "../style/GlobalStyles";
 import { darkTheme, lightTheme } from "../style/theme/theme";
+import * as St from "./layout.styled";
 
 interface ILayoutProps {
   children: React.ReactNode;
@@ -15,9 +18,21 @@ interface ILayoutProps {
 }
 
 const Layout = ({ children, pageTitle, location }: ILayoutProps) => {
-  const { theme } = useThemeContext();
   return (
-    <ThemeProvider theme={theme === "darkTheme" ? darkTheme : lightTheme}>
+    <ToggleContextProvider>
+      <InnerLayout
+        children={children}
+        pageTitle={pageTitle}
+        location={location}
+      />
+    </ToggleContextProvider>
+  );
+};
+
+const InnerLayout = ({ children, pageTitle, location }: ILayoutProps) => {
+  const { themeState } = useToggleContext();
+  return (
+    <ThemeProvider theme={themeState === "darkTheme" ? darkTheme : lightTheme}>
       <GlobalFonts />
       <GlobalStyles />
       <St.Container>

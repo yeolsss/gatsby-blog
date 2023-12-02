@@ -1,12 +1,19 @@
-import React from "react";
-import * as St from "./profile.styled";
 import { StaticImage } from "gatsby-plugin-image";
+import React from "react";
+import { useToggleContext } from "../../../context/ToggleContext";
+import * as St from "./profile.styled";
 
 function ProfileImage() {
+
+  const {toggleProfile} = useToggleContext();
+  
+  const handleOnClickProfileToggle = ()=> {
+    toggleProfile();
+  }
   return (
     <St.ProfileContainer>
       <St.ProfileWrapper>
-        <St.ProfileImageWrapper>
+        <St.ProfileImageWrapper onClick={handleOnClickProfileToggle}>
           <StaticImage
             src="../../../images/yeols.jpg"
             alt="profile photo"

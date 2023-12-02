@@ -1,9 +1,8 @@
 module.exports = {
-  // 여기에 Prettier 설정을 추가하세요.
   singleQuote: false,
-  semi: false,
+  semi: true,
   useTabs: false,
   tabWidth: 2,
+  trailingComma: "es5",
   printWidth: 40,
-  bracketSpacing: true,
-};
+}

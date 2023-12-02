@@ -1,7 +1,7 @@
-import React from 'react';
-import Layout from '../../components/layout';
-import { HeadFC } from 'gatsby';
-import Seo from '../../shared/seo';
+import React from "react";
+import Layout from "../../shared/layout";
+import { HeadFC } from "gatsby";
+import Seo from "../../shared/seo";
 
 function Work({ location }: { location: Location }) {
   return (

@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { navigate, type HeadFC, type PageProps } from 'gatsby';
-import Seo from '../shared/seo';
+import * as React from "react";
+import { navigate, type HeadFC, type PageProps } from "gatsby";
+import Seo from "../shared/seo";
 
 const IndexPage: React.FC<PageProps> = ({ location: Location }) => {
-  navigate('/home');
+  navigate("/home");
   return <></>;
 };
 

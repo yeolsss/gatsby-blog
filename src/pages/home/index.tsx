@@ -1,7 +1,8 @@
-import React from 'react';
-import Layout from '../../components/layout';
-import { HeadFC } from 'gatsby';
-import Seo from '../../shared/seo';
+import { HeadFC } from "gatsby";
+import React from "react";
+import { ToggleContextProvider } from "../../context/ToggleContext";
+import Layout from "../../shared/layout";
+import Seo from "../../shared/seo";
 
 function home({ location }: { location: Location }) {
   return (

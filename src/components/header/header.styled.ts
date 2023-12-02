@@ -1,13 +1,16 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Header = styled.header`
   width: 100%;
   height: 10.548rem;
-  margin-top: 3.165rem;
   display: flex;
   justify-content: space-between;
   padding: 0 2.1rem;
   box-sizing: border-box;
+  margin: 3.165rem auto 0;
+  @media (max-width: 74rem) {
+    max-width: 70rem;
+  }
 `;
 export const HeaderLogoWrapper = styled.div`
   height: 100%;
@@ -19,13 +22,11 @@ export const Logo = styled.h1`
   font-size: 6.329rem;
   font-weight: 700;
   height: 100%;
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-family: "IBM Plex Sans KR", sans-serif;
   font-style: normal;
   line-height: 9.4936rem; /* 150% */
   letter-spacing: -0.949px;
 `;
-
-export const HeaderNav = styled.nav``;
 
 export const HeaderNavList = styled.ul`
   height: 100%;
@@ -34,26 +35,27 @@ export const HeaderNavList = styled.ul`
   gap: 2.1rem;
 `;
 
-export const HeaderNavListElement = styled.li<{ $isCurrentPage: boolean }>`
+export const HeaderNavListElement = styled.li<{
+  $isCurrentPage: boolean;
+}>`
   position: relative;
   height: 4.8rem;
   display: flex;
   align-items: center;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: ${({ $isCurrentPage }) => ($isCurrentPage ? "100%" : "0%")};
     height: 0.5rem;
     background-color: var(--primaryColor);
     border-radius: 10px;
-    opacity: ${({ $isCurrentPage }) => ($isCurrentPage ? '1' : '0')};
-    transition: opacity 0.3s ease-in;
+    transition: width 0.15s ease-in;
   }
 
   &:hover::before {
-    opacity: 1;
+    width: 100%;
   }
 
   > a {

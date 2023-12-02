@@ -1,6 +1,6 @@
-import React from 'react';
-import * as St from './header.styled';
-import { Link } from 'gatsby';
+import React from "react";
+import * as St from "./header.styled";
+import { Link } from "gatsby";
 
 interface IHeaderProps {
   pageTitle: string;
@@ -13,19 +13,19 @@ function Header({ pageTitle, location }: IHeaderProps) {
       <St.HeaderLogoWrapper>
         <St.Logo>Yeols.dev</St.Logo>
       </St.HeaderLogoWrapper>
-      <St.HeaderNav>
+      <nav>
         <St.HeaderNavList>
-          <St.HeaderNavListElement $isCurrentPage={pageTitle === 'Home'}>
+          <St.HeaderNavListElement $isCurrentPage={pageTitle === "Home"}>
             <Link to="/home">home</Link>
           </St.HeaderNavListElement>
-          <St.HeaderNavListElement $isCurrentPage={pageTitle === 'Work'}>
+          <St.HeaderNavListElement $isCurrentPage={pageTitle === "Work"}>
             <Link to="/work">work</Link>
           </St.HeaderNavListElement>
-          <St.HeaderNavListElement $isCurrentPage={pageTitle === 'Post'}>
+          <St.HeaderNavListElement $isCurrentPage={pageTitle === "Post"}>
             <Link to="/post">post</Link>
           </St.HeaderNavListElement>
         </St.HeaderNavList>
-      </St.HeaderNav>
+      </nav>
     </St.Header>
   );
 }

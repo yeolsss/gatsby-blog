@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const styled = { createGlobalStyle };
 export const GlobalStyles = styled.createGlobalStyle`
@@ -96,7 +96,9 @@ export const GlobalStyles = styled.createGlobalStyle`
     font: inherit;
     vertical-align: baseline;
   }
+
   /* HTML5 display-role reset for older browsers */
+
   article,
   aside,
   details,
@@ -110,24 +112,29 @@ export const GlobalStyles = styled.createGlobalStyle`
   section {
     display: block;
   }
+
   body {
     line-height: 1;
   }
+
   ol,
   ul {
     list-style: none;
   }
+
   blockquote,
   q {
     quotes: none;
   }
+
   blockquote:before,
   blockquote:after,
   q:before,
   q:after {
-    content: '';
+    content: "";
     content: none;
   }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -138,7 +145,18 @@ export const GlobalStyles = styled.createGlobalStyle`
     text-decoration: none;
   }
 
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
   /* typography */
+
   :root {
     --primaryColor: ${({ theme }) => theme.primaryColor};
     --secondaryColor: ${({ theme }) => theme.secondaryColor};
@@ -147,16 +165,19 @@ export const GlobalStyles = styled.createGlobalStyle`
     --backgroundColor1: ${({ theme }) => theme.backgroundColor1};
     --backgroundColor2: ${({ theme }) => theme.backgroundColor2};
     --backgroundColor3: ${({ theme }) => theme.backgroundColor3};
-
     --ibm-plex-sans-kr: IBM Plex Sans KR, IBM Plex Sans;
+    --transition-second: 0.3s ease-in;
   }
+
   html {
     font-size: 62.5%;
   }
+
   #___gatsby {
     display: flex;
     width: 100vw;
   }
+
   #gatsby-focus-wrapper {
     margin: 0 auto;
     max-width: 98.1rem;
@@ -167,5 +188,8 @@ export const GlobalStyles = styled.createGlobalStyle`
     background-color: var(--backgroundColor2);
     color: var(--textColor);
     font-family: var(--ibm-plex-sans-kr);
+    transition:
+      background-color var(--transition-second),
+      color var(--transition-second);
   }
 `;

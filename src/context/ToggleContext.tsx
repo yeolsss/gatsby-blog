@@ -1,37 +1,37 @@
 // init settings
-import * as React from "react"
+import * as React from "react";
 import {
   createContext,
   useContext,
   useState,
-} from "react"
+} from "react";
 
 export interface IThemeContext {
-  themeState: string
-  profileState: string
-  toggleTheme: () => void
-  toggleProfile: () => void
+  themeState: string;
+  profileState: string;
+  toggleTheme: () => void;
+  toggleProfile: () => void;
 }
 
 interface ILocalStorage {
-  themeState: string
-  profileState: string
+  themeState: string;
+  profileState: string;
 }
 
 interface IToggleProviderProps
   extends React.PropsWithChildren<{}> {}
 
-const BLOG_TOGGLE = "blog_toggle"
+const BLOG_TOGGLE = "blog_toggle";
 
 const initialState: IThemeContext = {
   themeState: "lightTheme",
   profileState: "open",
   toggleTheme: () => {},
   toggleProfile: () => {},
-}
+};
 // create provider
 export const ToggleContext =
-  createContext(initialState)
+  createContext(initialState);
 
 // create context
 
@@ -39,13 +39,13 @@ export function ToggleContextProvider({
   children,
 }: IToggleProviderProps) {
   const isBrowser =
-    typeof window !== "undefined"
+    typeof window !== "undefined";
 
   const localToggleState = isBrowser
     ? JSON.parse(
         localStorage.getItem(
-          BLOG_TOGGLE,
-        )!,
+          BLOG_TOGGLE
+        )!
       ) || {
         themeState: "lightTheme",
         profileState: "open",
@@ -53,63 +53,63 @@ export function ToggleContextProvider({
     : {
         themeState: "lightTheme",
         profileState: "open",
-      }
+      };
 
   const [themeState, setThemeState] =
     useState(
-      localToggleState.themeState,
-    )
+      localToggleState.themeState
+    );
   const [
     profileState,
     setProfileState,
   ] = useState(
-    localToggleState.profileState,
-  )
+    localToggleState.profileState
+  );
 
   const toggleTheme = () => {
     const settingTheme =
       themeState === "lightTheme"
         ? "darkTheme"
-        : "lightTheme"
+        : "lightTheme";
     localStorage.setItem(
       BLOG_TOGGLE,
       JSON.stringify({
         ...localToggleState,
         themeState: settingTheme,
-      }),
-    )
-    setThemeState(settingTheme)
-  }
+      })
+    );
+    setThemeState(settingTheme);
+  };
 
   const toggleProfile = () => {
     const settingProfile =
       profileState === "open"
         ? "close"
-        : "open"
+        : "open";
     localStorage.setItem(
       BLOG_TOGGLE,
       JSON.stringify({
         ...localToggleState,
         profileState: settingProfile,
-      }),
-    )
-    setProfileState(settingProfile)
-  }
+      })
+    );
+    setProfileState(settingProfile);
+  };
 
   const value = {
     themeState,
     profileState,
     toggleTheme,
     toggleProfile,
-  }
+  };
   return (
     <ToggleContext.Provider
       value={value}
     >
       {children}
     </ToggleContext.Provider>
-  )
+  );
 }
 
 export const useToggleContext = () =>
-  useContext(ToggleContext)
+  useContext(ToggleContext);

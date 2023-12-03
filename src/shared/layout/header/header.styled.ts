@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mediaQuery } from "../../shared/style/media/container.media";
+import { mediaQuery } from "../../style/media/container.media";
 
 export const Header = styled.header`
   width: 100%;

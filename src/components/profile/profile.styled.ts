@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mediaQuery } from "../../shared/style/media/container.media";
 
 export const ProfileWrapper = styled.section`
   margin: 3.6rem auto 1.6rem;
@@ -11,11 +12,16 @@ export const ProfileWrapper = styled.section`
   z-index: 2;
   position: relative;
   // tablet
-  @media (max-width: 74rem) {
+  ${mediaQuery(
+    "tablet",
+    `
     max-width: 52rem;
-  }
+  `
+  )}
 `;
-export const ProfileContent = styled.div<{ $profileState: string }>`
+export const ProfileContent = styled.div<{
+  $profileState: string;
+}>`
   padding: 1rem 2.1rem;
   width: ${({ $profileState }) => ($profileState === "open" ? "100%" : "20%")};
   display: flex;
@@ -52,7 +58,9 @@ export const ProfileContent = styled.div<{ $profileState: string }>`
     flex: ${({ $profileState }) => ($profileState === "open" ? "2" : "0")};
   }
 `;
-export const VisibleProfileWrapper = styled.div<{ $profileState: string }>`
+export const VisibleProfileWrapper = styled.div<{
+  $profileState: string;
+}>`
   width: ${({ $profileState }) => ($profileState === "open" ? "100%" : "0")};
   height: ${({ $profileState }) =>
     $profileState === "open" ? "calc(100% + 1.5rem)" : "0"};
@@ -69,12 +77,17 @@ export const VisibleProfileWrapper = styled.div<{ $profileState: string }>`
   z-index: -1;
 
   // tablet
-  @media (max-width: 74rem) {
+  ${mediaQuery(
+    "tablet",
+    `
     max-width: 52rem;
-  }
+  `
+  )}
 `;
 
-export const ProfileInformation = styled.div<{ $profileState: string }>`
+export const ProfileInformation = styled.div<{
+  $profileState: string;
+}>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -94,9 +107,12 @@ export const ProfileInformation = styled.div<{ $profileState: string }>`
   overflow: hidden;
 
   // tablet
-  @media (max-width: 74rem) {
+  ${mediaQuery(
+    "tablet",
+    `
     max-width: 28rem;
-  }
+  `
+  )}
 `;
 
 export const ProfileInformationNameTag = styled.div`
@@ -124,7 +140,9 @@ export const ProfileDescription = styled.div`
   }
 `;
 
-export const ProfileDescriptionWrapper = styled.div<{ $profileState: string }>`
+export const ProfileDescriptionWrapper = styled.div<{
+  $profileState: string;
+}>`
   padding: ${({ $profileState }) =>
     $profileState === "open" ? "1rem 2.1rem" : "0"};
   width: ${({ $profileState }) => ($profileState === "open" ? "auto" : "0")};

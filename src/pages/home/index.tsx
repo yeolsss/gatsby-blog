@@ -1,7 +1,8 @@
 import { HeadFC } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-import Header from "../../components/home/header/Header";
+import Header from "../../components/home/header";
+import Posts from "../../components/posts";
 import Layout from "../../shared/layout";
 import Seo from "../../shared/seo";
 
@@ -10,6 +11,7 @@ function home({ location }: { location: Location }) {
     <Layout location={location} pageTitle="Home">
       <HomeContainer>
         <Header />
+        <Posts />
       </HomeContainer>
     </Layout>
   );
@@ -18,11 +20,4 @@ function home({ location }: { location: Location }) {
 export default home;
 export const Head: HeadFC = () => <Seo title="Home" />;
 
-export const HomeContainer = styled.section`
-  background-color: var(--backgroundColor3);
-  padding: 16px;
-  border-radius: 16px;
-  width: 100%;
-  height: auto;
-  transition: background-color var(--transition-second);
-`;
+export const HomeContainer = styled.section``;

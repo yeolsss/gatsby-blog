@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import styled from "styled-components";
 
 export const CategoryWrapper = styled.div`
@@ -12,7 +13,12 @@ export const CategoryWrapper = styled.div`
   flex-wrap: wrap;
   column-gap: 0.8rem;
   row-gap: 1.6rem;
+`;
 
+export const CategoryLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  height: 0.5rem;
   > span {
     opacity: 0.75;
     &:hover {

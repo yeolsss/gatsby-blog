@@ -3,21 +3,13 @@ import { mediaQuery } from "../../shared/style/media/container.media";
 
 export const ProfileWrapper = styled.section`
   margin: 3.6rem auto 1.6rem;
-  max-width: 70rem;
-  width: 100vw;
+  width: 100%;
   height: auto;
   border-radius: 1.6rem;
   color: var(--textColor);
   transition: background-color var(--transition-second);
   z-index: 2;
   position: relative;
-  // tablet
-  ${mediaQuery(
-    "tablet",
-    `
-    max-width: 52rem;
-  `
-  )}
 `;
 export const ProfileContent = styled.div<{
   $profileState: string;
@@ -75,14 +67,6 @@ export const VisibleProfileWrapper = styled.div<{
   top: 0;
   left: 0;
   z-index: -1;
-
-  // tablet
-  ${mediaQuery(
-    "tablet",
-    `
-    max-width: 52rem;
-  `
-  )}
 `;
 
 export const ProfileInformation = styled.div<{
@@ -91,12 +75,11 @@ export const ProfileInformation = styled.div<{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
   margin: 0 auto;
   max-width: 45rem;
   padding: ${({ $profileState }) =>
     $profileState === "open" ? "1rem 2.1rem" : "0"};
-  width: ${({ $profileState }) => ($profileState === "open" ? "auto" : "0")};
+  width: ${({ $profileState }) => ($profileState === "open" ? "100%" : "0")};
   height: ${({ $profileState }) => ($profileState === "open" ? "auto" : "0")};
   opacity: ${({ $profileState }) => ($profileState === "open" ? "1" : "0")};
   transition:
@@ -106,7 +89,6 @@ export const ProfileInformation = styled.div<{
     padding var(--transition-second);
   overflow: hidden;
 
-  // tablet
   ${mediaQuery(
     "tablet",
     `

@@ -38,12 +38,14 @@ const InnerLayout = ({ children, pageTitle, location }: ILayoutProps) => {
       <GlobalStyles />
       <St.Container>
         <Header pageTitle={pageTitle} location={location} />
-        {/* profile  */}
-        <Profile />
-        {/* Category */}
-        <Category />
+        <St.LayoutWrapper>
+          {/* profile  */}
+          <Profile />
+          {/* Category */}
+          <Category />
 
-        <St.Main>{children}</St.Main>
+          <St.Main>{children}</St.Main>
+        </St.LayoutWrapper>
       </St.Container>
     </ThemeProvider>
   );

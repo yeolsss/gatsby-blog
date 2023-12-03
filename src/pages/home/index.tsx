@@ -1,6 +1,5 @@
 import { HeadFC } from "gatsby";
 import React from "react";
-import { ToggleContextProvider } from "../../context/ToggleContext";
 import Layout from "../../shared/layout";
 import Seo from "../../shared/seo";
 

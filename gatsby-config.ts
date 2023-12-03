@@ -1,4 +1,4 @@
-import type { GatsbyConfig } from "gatsby"
+import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -20,8 +20,7 @@ const config: GatsbyConfig = {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
           {
-            resolve:
-              "gatsby-remark-images",
+            resolve: "gatsby-remark-images",
             options: {
               maxWidth: 600,
             },
@@ -30,14 +29,13 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve:
-        "gatsby-source-filesystem",
+      resolve: "gatsby-source-filesystem",
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
     },
   ],
-}
+};
 
-export default config
+export default config;

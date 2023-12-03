@@ -1,5 +1,6 @@
 import * as React from "react";
 import { ThemeProvider } from "styled-components";
+import Category from "../../components/category/Category";
 import Header from "../../components/header";
 import Profile from "../../components/profile";
 import {
@@ -39,6 +40,9 @@ const InnerLayout = ({ children, pageTitle, location }: ILayoutProps) => {
         <Header pageTitle={pageTitle} location={location} />
         {/* profile  */}
         <Profile />
+        {/* Category */}
+        <Category />
+
         <St.Main>{children}</St.Main>
       </St.Container>
     </ThemeProvider>

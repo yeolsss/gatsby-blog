@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mediaQuery } from "../../shared/style/media/container.media";
 
 export const Header = styled.header`
   width: 100%;
@@ -8,9 +9,12 @@ export const Header = styled.header`
   padding: 0 2.1rem;
   box-sizing: border-box;
   margin: 3.165rem auto 0;
-  @media (max-width: 74rem) {
-    max-width: 70rem;
-  }
+  ${mediaQuery(
+    "tablet",
+    `
+    max-width: 70rem
+  `
+  )}
 `;
 export const HeaderLogoWrapper = styled.div`
   height: 100%;

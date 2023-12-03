@@ -9,7 +9,6 @@ import ThemeButton from "./themeButton";
 
 const Profile = () => {
   const { profileState } = useToggleContext();
-  console.log(profileState);
   return (
     <St.ProfileWrapper>
       {/* 가상 div */}

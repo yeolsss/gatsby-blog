@@ -192,4 +192,16 @@ export const GlobalStyles = styled.createGlobalStyle`
       background-color var(--transition-second),
       color var(--transition-second);
   }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  strong {
+    font-family: var(--ibm-plex-sans-kr);
+  }
 `;

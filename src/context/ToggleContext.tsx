@@ -1,10 +1,5 @@
 import * as React from "react";
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export interface IThemeContext {
   themeState: string;
@@ -22,52 +17,32 @@ const initialState: IThemeContext = {
   toggleProfile: () => {},
 };
 
-export const ToggleContext =
-  createContext<IThemeContext>(
-    initialState
-  );
+export const ToggleContext = createContext<IThemeContext>(initialState);
 
-const getInitialToggleState =
-  (): IThemeContext => {
-    if (typeof window === "undefined") {
-      return initialState;
-    }
+const getInitialToggleState = (): IThemeContext => {
+  if (typeof window === "undefined") {
+    return initialState;
+  }
 
-    const storedState =
-      localStorage.getItem(BLOG_TOGGLE);
-    return storedState
-      ? JSON.parse(storedState)
-      : initialState;
-  };
+  const storedState = localStorage.getItem(BLOG_TOGGLE);
+  return storedState ? JSON.parse(storedState) : initialState;
+};
 
-export const ToggleContextProvider: React.FC<
-  React.PropsWithChildren<{}>
-> = ({ children }) => {
-  const [themeState, setThemeState] =
-    useState(initialState.themeState);
-  const [
-    profileState,
-    setProfileState,
-  ] = useState(
-    initialState.profileState
-  );
+export const ToggleContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
+  children,
+}) => {
+  const [themeState, setThemeState] = useState(initialState.themeState);
+  const [profileState, setProfileState] = useState(initialState.profileState);
 
   useEffect(() => {
-    const localToggleState =
-      getInitialToggleState();
-    setThemeState(
-      localToggleState.themeState
-    );
-    setProfileState(
-      localToggleState.profileState
-    );
+    const localToggleState = getInitialToggleState();
+    setThemeState(localToggleState.themeState);
+    setProfileState(localToggleState.profileState);
   }, []);
 
   const toggleTheme = () => {
     const newThemeState =
-      themeState === "lightTheme"
-        ? "darkTheme"
-        : "lightTheme";
+      themeState === "lightTheme" ? "darkTheme" : "lightTheme";
     localStorage.setItem(
       BLOG_TOGGLE,
       JSON.stringify({
@@ -79,10 +54,7 @@ export const ToggleContextProvider: React.FC<
   };
 
   const toggleProfile = () => {
-    const newProfileState =
-      profileState === "open"
-        ? "close"
-        : "open";
+    const newProfileState = profileState === "open" ? "close" : "open";
     localStorage.setItem(
       BLOG_TOGGLE,
       JSON.stringify({
@@ -101,13 +73,8 @@ export const ToggleContextProvider: React.FC<
   };
 
   return (
-    <ToggleContext.Provider
-      value={value}
-    >
-      {children}
-    </ToggleContext.Provider>
+    <ToggleContext.Provider value={value}>{children}</ToggleContext.Provider>
   );
 };
 
-export const useToggleContext = () =>
-  useContext(ToggleContext);
+export const useToggleContext = () => useContext(ToggleContext);

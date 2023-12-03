@@ -4,12 +4,11 @@ import { useToggleContext } from "../../../context/ToggleContext";
 import * as St from "./profile.styled";
 
 function ProfileImage() {
+  const { toggleProfile } = useToggleContext();
 
-  const {toggleProfile} = useToggleContext();
-  
-  const handleOnClickProfileToggle = ()=> {
+  const handleOnClickProfileToggle = () => {
     toggleProfile();
-  }
+  };
   return (
     <St.ProfileContainer>
       <St.ProfileWrapper>

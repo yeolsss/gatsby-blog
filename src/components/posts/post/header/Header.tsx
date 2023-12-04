@@ -2,14 +2,14 @@ import * as React from "react";
 import * as St from "./header.styled";
 
 interface IPageProps {
-  postCategory: string;
+  category: string | null;
   createAt: string;
 }
 
-const Header: React.FC<IPageProps> = ({ postCategory, createAt }) => {
+const Header: React.FC<IPageProps> = ({ category, createAt }) => {
   return (
     <St.PostHeader>
-      <h3>{postCategory}</h3>
+      <h3>{category}</h3>
       <h4>{createAt}</h4>
     </St.PostHeader>
   );

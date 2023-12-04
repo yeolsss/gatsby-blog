@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const PostContentContainer = styled.div`
-  > p {
+  > div {
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 400;

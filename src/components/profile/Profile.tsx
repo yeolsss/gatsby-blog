@@ -9,6 +9,16 @@ import ThemeButton from "./themeButton";
 
 const Profile = () => {
   const { profileState } = useToggleContext();
+  const [textVisible, setTextVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    if (profileState === "open") {
+      setTimeout(() => setTextVisible(true), 350); // 열릴 때 지연
+    } else {
+      setTextVisible(false); // 닫힐 때 바로 숨김
+    }
+  }, [profileState]);
+
   return (
     <St.ProfileWrapper>
       {/* 가상 div */}
@@ -19,7 +29,7 @@ const Profile = () => {
         <ProfileImage />
 
         {/* profile info */}
-        <St.ProfileInformation $profileState={profileState}>
+        <St.ProfileInformation $textVisible={textVisible}>
           <h2>저에 대해 소개 합니다.</h2>
           <St.ProfileInformationNameTag>
             <h1>권경열</h1>
@@ -39,7 +49,7 @@ const Profile = () => {
         {/* theme toggle button */}
         <ThemeButton />
       </St.ProfileContent>
-      <St.ProfileDescriptionWrapper $profileState={profileState}>
+      <St.ProfileDescriptionWrapper $textVisible={textVisible}>
         <St.ProfileDescription>
           <p>
             안녕하세요. 웹 개발 2년차로 활동중인 개발자 입니다. 단순히 책이나

@@ -6,6 +6,7 @@ export const Container = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
+  padding-bottom: 20px;
 `;
 export const LayoutWrapper = styled.div`
   margin: 0 auto;
@@ -18,4 +19,14 @@ export const LayoutWrapper = styled.div`
   `
   )}
 `;
-export const Main = styled.main``;
+export const Main = styled.main`
+  background-color: var(--backgroundColor3);
+  padding: 16px 16px 50px;
+  border-radius: 16px;
+  width: 100%;
+  height: auto;
+  transition: background-color var(--transition-second);
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+`;

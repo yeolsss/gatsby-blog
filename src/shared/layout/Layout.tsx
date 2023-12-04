@@ -1,7 +1,6 @@
 import * as React from "react";
 import { ThemeProvider } from "styled-components";
 import Category from "../../components/category/Category";
-import Header from "../../components/header";
 import Profile from "../../components/profile";
 import {
   ToggleContextProvider,
@@ -10,6 +9,8 @@ import {
 import { GlobalFonts } from "../style/GlobalFonts";
 import { GlobalStyles } from "../style/GlobalStyles";
 import { darkTheme, lightTheme } from "../style/theme/theme";
+import Footer from "./footer";
+import Header from "./header";
 import * as St from "./layout.styled";
 
 interface ILayoutProps {
@@ -44,7 +45,10 @@ const InnerLayout = ({ children, pageTitle, location }: ILayoutProps) => {
           {/* Category */}
           <Category />
 
-          <St.Main>{children}</St.Main>
+          <St.Main>
+            {children}
+            <Footer />
+          </St.Main>
         </St.LayoutWrapper>
       </St.Container>
     </ThemeProvider>

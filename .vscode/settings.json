@@ -1,6 +1,11 @@
 {
-    "prettier.configPath": ".prettierrc.js",
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode", 
-    "editor.codeActionsOnSave": { "source.organizeImports": "explicit" },
+  "prettier.configPath": ".prettierrc.js",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "emmet.showAbbreviationSuggestions": true,
+  "emmet.optimizeStylesheetParsing": true,
+  "emmet.showExpandedAbbreviation": "always"
 }

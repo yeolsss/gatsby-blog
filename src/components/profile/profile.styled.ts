@@ -20,8 +20,8 @@ export const ProfileContent = styled.div<{
   justify-content: ${({ $profileState }) =>
     $profileState === "open" ? "space-between" : "normal"};
   transition:
-    justify-content var(--transition-second),
-    width var(--transition-second);
+    justify-content var(--profile-transition-second),
+    width var(--profile-transition-second);
 
   // text
   & h2 {
@@ -32,7 +32,7 @@ export const ProfileContent = styled.div<{
     letter-spacing: 0.07px;
     color: var(--textColor);
     opacity: 0.75;
-    transition: color var(--transition-second);
+    transition: color var(--profile-transition-second);
   }
 
   & h1 {
@@ -61,33 +61,36 @@ export const VisibleProfileWrapper = styled.div<{
   color: var(--textColor);
   transition:
     background-color var(--transition-second),
-    width var(--transition-second),
-    height var(--transition-second);
+    width var(--profile-transition-second),
+    height var(--profile-transition-second);
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
 `;
 
-export const ProfileInformation = styled.div<{
-  $profileState: string;
-}>`
+export const ProfileInformation = styled.div<{ $textVisible: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
   max-width: 45rem;
-  padding: ${({ $profileState }) =>
-    $profileState === "open" ? "1rem 2.1rem" : "0"};
-  width: ${({ $profileState }) => ($profileState === "open" ? "100%" : "0")};
-  height: ${({ $profileState }) => ($profileState === "open" ? "auto" : "0")};
-  opacity: ${({ $profileState }) => ($profileState === "open" ? "1" : "0")};
-  transition:
-    opacity 0.1s ease-in,
-    width var(--transition-second),
-    height var(--transition-second),
-    padding var(--transition-second);
+  width: ${({ $textVisible }) => ($textVisible ? "100%" : "0")};
+  height: ${({ $textVisible }) => ($textVisible ? "auto" : "0")};
+  /* padding: ${({ $textVisible }) => ($textVisible ? "1rem 2.1rem" : "0")};
+  
+  opacity: ${({ $textVisible }) => ($textVisible ? "1" : "0")}; */
   overflow: hidden;
+
+  h1,
+  h2,
+  p {
+    opacity: ${({ $textVisible }) => ($textVisible ? 1 : 0)};
+    visibility: ${({ $textVisible }) => ($textVisible ? "visible" : "hidden")};
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
+  }
 
   ${mediaQuery(
     "tablet",
@@ -123,19 +126,23 @@ export const ProfileDescription = styled.div`
 `;
 
 export const ProfileDescriptionWrapper = styled.div<{
-  $profileState: string;
+  $textVisible: boolean;
 }>`
-  padding: ${({ $profileState }) =>
-    $profileState === "open" ? "1rem 2.1rem" : "0"};
-  width: ${({ $profileState }) => ($profileState === "open" ? "auto" : "0")};
-  height: ${({ $profileState }) => ($profileState === "open" ? "auto" : "0")};
-  opacity: ${({ $profileState }) => ($profileState === "open" ? "1" : "0")};
+  padding: ${({ $textVisible }) => ($textVisible ? "1rem 2.1rem" : "0")};
+  width: ${({ $textVisible }) => ($textVisible ? "auto" : "0")};
+  height: ${({ $textVisible }) => ($textVisible ? "auto" : "0")};
+  opacity: ${({ $textVisible }) => ($textVisible ? "1" : "0")};
   transition:
-    opacity var(--transition-second),
-    width var(--transition-second),
-    height var(--transition-second),
-    padding var(--transition-second);
+    opacity var(--profile-transition-second),
+    width var(--profile-transition-second),
+    height var(--profile-transition-second),
+    padding var(--profile-transition-second);
   overflow: hidden;
+  span,
+  p {
+    opacity: ${({ $textVisible }) => ($textVisible ? 1 : 0)};
+    visibility: ${({ $textVisible }) => ($textVisible ? "visible" : "hidden")};
+  }
 `;
 
 export const ProfileSkill = styled.div`

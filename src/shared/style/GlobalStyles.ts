@@ -167,10 +167,12 @@ export const GlobalStyles = styled.createGlobalStyle`
     --backgroundColor3: ${({ theme }) => theme.backgroundColor3};
     --ibm-plex-sans-kr: IBM Plex Sans KR, IBM Plex Sans;
     --transition-second: 0.3s ease-in;
+    --profile-transition-second: 0.5s ease-in;
   }
 
   html {
     font-size: 62.5%;
+    overflow-x: hidden;
   }
 
   #___gatsby {
